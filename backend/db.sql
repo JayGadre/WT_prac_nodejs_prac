@@ -1,6 +1,6 @@
 -- DB schema for simple bookstore demo
-CREATE DATABASE IF NOT EXISTS bookstore_demo;
-USE bookstore_demo;
+CREATE DATABASE IF NOT EXISTS bookstore;
+USE bookstore;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,

@@ -1,4 +1,77 @@
-# Getting Started with Create React App
+# Simple Bookstore (React + Express + MySQL)
+
+This is a small demo online bookstore built with React (frontend) and Node.js + Express (backend) using MySQL for data storage. It contains simple pages: Home, Login, Catalogue, and Registration.
+
+Overview
+- Frontend: React app in the project root (`src/`)
+- Backend: Express server in `backend/` (connects to MySQL)
+- DB schema: `backend/db.sql` (creates `bookstore_demo` DB with sample books)
+
+Key demo behavior
+- Registration requires the password to exactly match the username (per the user's request).
+- Login validates stored credentials. After successful login, the Catalogue page is public and shows books from the DB.
+
+Quick setup (Windows PowerShell)
+
+1) Prepare MySQL
+
+Run MySQL and create the schema (adjust path to `mysql.exe` if needed):
+
+```powershell
+# from project root
+mysql -u root -p < .\backend\db.sql
+```
+
+If you prefer, open the `backend/db.sql` file and run its statements in your MySQL client.
+
+2) Configure backend environment
+
+Copy the example env file and edit credentials if needed:
+
+```powershell
+cd .\backend
+copy .env.example .env
+# then edit .env to set DB_USER, DB_PASSWORD if required
+```
+
+3) Install dependencies
+
+```powershell
+# Install backend deps
+cd .\backend
+npm install
+
+# Install frontend deps (from project root)
+cd ..\
+npm install
+```
+
+4) Run the servers
+
+Run the backend (from `backend`):
+
+```powershell
+cd .\backend
+npm start
+```
+
+Run the frontend (from project root):
+
+```powershell
+# from project root
+npm start
+```
+
+The React dev server will proxy API requests to `http://localhost:5000` (see `package.json` proxy).
+
+Usage
+- Register a new user at `/register`. For this demo, choose a password exactly matching the username.
+- Login at `/login`.
+- After logging in, open `/catalogue` to see the list of books.
+
+Notes
+- This project is intentionally simple for learning/demonstration purposes. It stores passwords in plaintext in the demo database — do not use this approach in production.
+- You can extend the app by adding password hashing, sessions or JWTs, and more fields on books.# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
